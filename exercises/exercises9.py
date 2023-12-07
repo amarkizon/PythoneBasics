@@ -76,6 +76,7 @@ res1.describe_restaurant()
 res1.open_restaurant()
 res1.reserved_table()
 
+
 # 9-5. Number Served:
 
 class User:
@@ -104,17 +105,29 @@ class User:
     def called_great_user(self):
         print(f"Welcome, {self.first_name.title()} {self.last_name.title()}")
 
-class Admin(User):
-    """ Exercise 9-7 """
-    def __init__(self, first_name, last_name, email, password):
-        upper().__init__(first_name, last_name, email, password)
-        self.privileges = ["can add post", "can delete post", "can ban user"]
+
+class Privileges:
+    self.privileges = ["can add post", "can delete post", "can ban user"]
 
     def show_privileges(self):
-        print(self.privileges)
+        print("Admin user has following privileges: ")
+        for privilege in self.privileges:
+            print(f"\t- {privilege}")
 
-user1 = User('anton', 'ivanov', 'ash.rest@gmail.com', '1234562566')
-user1.increment_attempts()
-user1.increment_attempts()
-user1.increment_attempts()
-user1.reset_attempts()
+    def add_privileges(self, privilege):
+        print("Updating the privileges list ...")
+        self.privileges.append(privilege)
+
+
+class Admin(User):
+    """ Exercise 9-7 """
+
+    privileges = Privileges()
+
+    def __init__(self, first_name, last_name, email, password):
+        super().__init__(first_name, last_name, email, password)
+
+
+
+
+
