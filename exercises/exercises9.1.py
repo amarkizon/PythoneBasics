@@ -34,3 +34,5 @@ circle = Circle(5)
 print(circle.radius)
 circle.radius = 10
 print(circle.radius)
+priv.add_privileges('nothing')
+
